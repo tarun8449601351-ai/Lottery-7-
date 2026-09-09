@@ -1,221 +1,798 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarun Ads</title>
+<div id="tarun-ads">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+#sikandar-vip{
+  --purple:#8b35ff;
+  --blue:#3e8cff;
+
+  width:100%;
+  min-height:100vh;
+  margin:0;
+  padding:55px 16px 70px;
+  box-sizing:border-box;
+
+  font-family:Arial,Helvetica,sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 50% 12%,
+      rgba(112,38,255,.38),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(35,95,255,.22),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(150,40,255,.20),
+      transparent 38%
+    ),
+    #050611;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  overflow:hidden;
+  position:relative;
 }
 
-body{
-background:#efefef;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
+#sikandar-vip *,
+#sikandar-vip *::before,
+#sikandar-vip *::after{
+  box-sizing:border-box;
 }
 
-.card{
-width:100%;
-max-width:430px;
-background:#fff;
-border-radius:40px;
-padding:35px 20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+#sikandar-vip:before{
+  content:"";
+  position:absolute;
+
+  width:430px;
+  height:430px;
+
+  top:-190px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  background:#712cff;
+  filter:blur(135px);
+
+  opacity:.25;
+  pointer-events:none;
 }
 
-.dp{
-width:180px;
-height:180px;
-margin:auto;
-border:10px solid red;
-border-radius:50%;
-overflow:hidden;
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.sv-card{
+  width:100%;
+  max-width:640px;
+
+  padding:58px 38px 43px;
+
+  position:relative;
+  z-index:2;
+
+  border-radius:40px;
+
+  background:
+    radial-gradient(
+      circle at 50% 22%,
+      rgba(77,40,155,.20),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #0d1025,
+      #07091a 70%,
+      #09051b
+    );
+
+  border:1px solid rgba(133,65,255,.42);
+
+  box-shadow:
+    0 0 0 1px rgba(53,91,255,.08),
+    0 0 45px rgba(116,40,255,.16),
+    inset 0 0 65px rgba(85,42,180,.07);
+
+  text-align:center;
+
+  overflow:hidden;
 }
 
-.dp img{
-width:100%;
-height:100%;
-object-fit:cover;
+
+/* TOP NEON LINE */
+
+.sv-card:before{
+  content:"";
+
+  position:absolute;
+
+  top:-1px;
+  left:12%;
+
+  width:76%;
+  height:2px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #a83cff,
+    #38a7ff,
+    transparent
+  );
+
+  box-shadow:0 0 18px #763cff;
 }
 
-h1{
-font-size:42px;
-font-weight:800;
-margin:35px 0;
-color:#000;
+
+/* BOTTOM GLOW */
+
+.sv-card:after{
+  content:"";
+
+  position:absolute;
+
+  width:350px;
+  height:190px;
+
+  bottom:-130px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  background:#6e2cff;
+
+  filter:blur(85px);
+
+  opacity:.25;
+
+  pointer-events:none;
 }
 
-.btn{
-display:block;
-width:100%;
-background:#1565c0;
-color:#fff;
-text-decoration:none;
-padding:28px;
-border-radius:60px;
-font-size:24px;
-font-weight:700;
-margin:25px 0;
+
+/* =========================
+   ARISE
+========================= */
+
+.sv-arise{
+  color:#42a9ff;
+
+  font-size:15px;
+  font-weight:700;
+
+  letter-spacing:6px;
+
+  margin-bottom:31px;
+
+  text-shadow:
+    0 0 10px rgba(50,157,255,.8),
+    0 0 22px rgba(50,100,255,.45);
 }
 
-.timer{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-margin:30px 0;
+
+/* =========================
+   PROFILE
+========================= */
+
+.sv-profile-wrap{
+  width:220px;
+  height:220px;
+
+  margin:0 auto 43px;
+
+  padding:9px;
+
+  border-radius:50%;
+
+  position:relative;
+
+  background:linear-gradient(
+    135deg,
+    #6b2cff,
+    #b65cff,
+    #38a8ff,
+    #6330ff
+  );
+
+  box-shadow:
+    0 0 20px rgba(103,51,255,.95),
+    0 0 55px rgba(73,89,255,.55),
+    0 0 95px rgba(121,44,255,.35);
+
+  animation:profilePulse 2.8s ease-in-out infinite;
 }
 
-.box{
-background:#fafafa;
-border:1px solid #e5e5e5;
-border-radius:25px;
-padding:25px 10px;
+
+/* OUTER ROTATING RING */
+
+.sv-profile-wrap:before{
+  content:"";
+
+  position:absolute;
+
+  inset:-9px;
+
+  border-radius:50%;
+
+  background:conic-gradient(
+    #702cff,
+    #37a9ff,
+    #bd4fff,
+    #702cff
+  );
+
+  filter:blur(12px);
+
+  opacity:.65;
+
+  z-index:-1;
+
+  animation:svSpin 5s linear infinite;
 }
 
-.num{
-font-size:42px;
-font-weight:800;
-color:#ff2f6d;
+
+.sv-profile{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  border:5px solid #080817;
+
+  box-shadow:
+    inset 0 0 25px rgba(0,0,0,.75);
 }
 
-.label{
-font-size:14px;
-font-weight:700;
-color:#d400ff;
-margin-top:8px;
+
+/* PROFILE ANIMATION */
+
+@keyframes svSpin{
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
 }
 
-@media(max-width:480px){
 
-h1{
-font-size:32px;
+@keyframes profilePulse{
+
+  0%,100%{
+    transform:scale(1);
+
+    box-shadow:
+      0 0 20px rgba(103,51,255,.95),
+      0 0 55px rgba(73,89,255,.55),
+      0 0 95px rgba(121,44,255,.35);
+  }
+
+  50%{
+    transform:scale(1.025);
+
+    box-shadow:
+      0 0 30px rgba(103,51,255,1),
+      0 0 70px rgba(73,89,255,.65),
+      0 0 110px rgba(121,44,255,.45);
+  }
 }
 
-.dp{
-width:150px;
-height:150px;
+
+/* =========================
+   TITLE
+========================= */
+
+.sv-title{
+  margin:0;
+
+  color:#fff;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-style:italic;
+
+  font-size:54px;
+
+  line-height:.98;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  text-shadow:
+    0 4px 20px rgba(0,0,0,.8),
+    0 0 25px rgba(170,101,255,.12);
 }
 
-.btn{
-font-size:20px;
-padding:22px;
+
+.sv-title span{
+  display:block;
+
+  margin-top:8px;
+
+  background:linear-gradient(
+    90deg,
+    #a45aff,
+    #d69aff,
+    #9c59ff
+  );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+
+  text-shadow:none;
 }
 
-.num{
-font-size:32px;
+
+/* =========================
+   DIVIDER
+========================= */
+
+.sv-divider{
+  width:98px;
+  height:3px;
+
+  margin:27px auto 31px;
+
+  border-radius:10px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #a238ff,
+    #39a9ff,
+    transparent
+  );
+
+  box-shadow:
+    0 0 14px rgba(91,79,255,.9);
 }
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.sv-desc{
+  color:#a5a9d2;
+
+  font-size:19px;
+
+  line-height:1.5;
+
+  letter-spacing:.5px;
+
+  margin:0 auto 42px;
 }
+
+
+/* =========================
+   TELEGRAM BUTTON
+========================= */
+
+.sv-button{
+
+  width:100%;
+
+  min-height:104px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+  isolation:isolate;
+
+  text-decoration:none;
+
+  border-radius:24px;
+
+  color:#fff;
+
+  font-size:25px;
+
+  font-weight:800;
+
+  letter-spacing:2px;
+
+  background:linear-gradient(
+    100deg,
+    #8227ed 0%,
+    #8c3aff 38%,
+    #367ff2 100%
+  );
+
+  border:1px solid rgba(255,255,255,.30);
+
+  box-shadow:
+    0 0 22px rgba(122,43,255,.52),
+    0 13px 35px rgba(40,48,180,.28),
+    inset 0 1px 0 rgba(255,255,255,.30);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+
+/* =========================
+   MOVING SHINE
+========================= */
+
+.sv-button:before{
+
+  content:"";
+
+  position:absolute;
+
+  top:-20%;
+
+  left:-80%;
+
+  width:45%;
+
+  height:140%;
+
+  background:linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.10) 20%,
+    rgba(255,255,255,.80) 50%,
+    rgba(255,255,255,.10) 80%,
+    transparent 100%
+  );
+
+  transform:skewX(-20deg);
+
+  animation:
+    svShine 2.3s ease-in-out infinite;
+
+  pointer-events:none;
+
+  z-index:1;
+}
+
+
+/* SHINE ANIMATION */
+
+@keyframes svShine{
+
+  0%{
+    left:-80%;
+  }
+
+  45%{
+    left:135%;
+  }
+
+  100%{
+    left:135%;
+  }
+}
+
+
+/* BUTTON TEXT ABOVE SHINE */
+
+.sv-button-text,
+.sv-arrow{
+  position:relative;
+  z-index:3;
+}
+
+
+/* ARROW */
+
+.sv-arrow{
+
+  margin-left:14px;
+
+  font-size:32px;
+
+  line-height:1;
+
+  animation:
+    arrowMove 1.2s ease-in-out infinite;
+}
+
+
+@keyframes arrowMove{
+
+  0%,100%{
+    transform:translateX(0);
+  }
+
+  50%{
+    transform:translateX(5px);
+  }
+}
+
+
+/* HOVER */
+
+.sv-button:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 0 35px rgba(122,43,255,.75),
+    0 18px 45px rgba(40,48,180,.38),
+    inset 0 1px 0 rgba(255,255,255,.35);
+}
+
+
+/* CLICK */
+
+.sv-button:active{
+  transform:scale(.98);
+}
+
+
+/* =========================
+   NOTE
+========================= */
+
+.sv-note{
+
+  margin:30px 0 0;
+
+  color:#777ba7;
+
+  font-size:16px;
+
+  letter-spacing:.4px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  #sikandar-vip{
+
+    min-height:100vh;
+
+    padding:
+      38px
+      13px
+      55px;
+  }
+
+
+  .sv-card{
+
+    padding:
+      55px
+      27px
+      44px;
+
+    border-radius:34px;
+  }
+
+
+  .sv-arise{
+
+    font-size:13px;
+
+    letter-spacing:5px;
+
+    margin-bottom:28px;
+  }
+
+
+  .sv-profile-wrap{
+
+    width:205px;
+    height:205px;
+
+    margin-bottom:40px;
+  }
+
+
+  .sv-title{
+
+    font-size:43px;
+
+    line-height:1;
+
+    letter-spacing:1px;
+  }
+
+
+  .sv-divider{
+
+    margin:
+      25px
+      auto
+      28px;
+  }
+
+
+  .sv-desc{
+
+    font-size:17px;
+
+    margin-bottom:38px;
+  }
+
+
+  .sv-button{
+
+    min-height:88px;
+
+    border-radius:21px;
+
+    font-size:20px;
+
+    letter-spacing:1.5px;
+  }
+
+
+  .sv-arrow{
+
+    font-size:27px;
+
+    margin-left:11px;
+  }
+
+
+  .sv-note{
+
+    font-size:14px;
+
+    margin-top:27px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:380px){
+
+  #sikandar-vip{
+
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+
+  .sv-card{
+
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+
+  .sv-profile-wrap{
+
+    width:180px;
+    height:180px;
+  }
+
+
+  .sv-title{
+
+    font-size:36px;
+  }
+
+
+  .sv-button{
+
+    font-size:18px;
+  }
+}
+
 </style>
-</head>
-<body>
 
-<div class="card">
 
-<div class="dp">
-<img src="https://d1yei2z3i6k35z.cloudfront.net/9021055/6a981e56ad2842.86833744_2893.jpg">
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<div class="sv-card">
+
+
+  <!-- TOP TEXT -->
+
+  <div class="sv-arise">
+    ◆ &nbsp; T A R U N &nbsp; ◆
+  </div>
+
+
+  <!-- PROFILE IMAGE -->
+
+  <div class="sv-profile-wrap">
+
+    <img
+      class="sv-profile"
+      src="https://d1yei2z3i6k35z.cloudfront.net/9021055/6a9b9eba5b6e22.88972104_3434.jpg"
+      alt="TARUN ~ ARMY">
+
+  </div>
+
+
+  <!-- TITLE -->
+
+  <h1 class="sv-title">
+
+    
+
+    <span>
+     TARUN~ARMY
+    </span>
+
+  </h1>
+
+
+  <!-- DIVIDER -->
+
+  <div class="sv-divider"></div>
+
+
+  <!-- DESCRIPTION -->
+
+  <p class="sv-desc">
+    Daily market levels and setups. Free to join.
+  </p>
+
+
+  <!-- TELEGRAM BUTTON -->
+
+  <a
+    class="sv-button"
+    href="https://t.me/+GnbKMxZo1yw1OTE1"
+    target="_blank"
+    rel="noopener noreferrer">
+
+    <span class="sv-button-text">
+      JOIN TELEGRAM
+    </span>
+
+    <span class="sv-arrow">
+      ➤
+    </span>
+
+  </a>
+
+
+  <!-- BOTTOM TEXT -->
+
+  <p class="sv-note">
+    Tap to open Telegram and send your request.
+  </p>
+
+
 </div>
 
-<h1>‼️ NARUTO X PANAL‼️</h1>
-
-<a href="https://t.me/+UKtEXGIaAF04Zjk1" class="btn">
-✈️ Join Telegram
-</a>
-
-<div class="timer">
-
-<div class="box">
-<div class="num" id="days">00</div>
-<div class="label">DAYS</div>
 </div>
-
-<div class="box">
-<div class="num" id="hours">00</div>
-<div class="label">HOURS</div>
-</div>
-
-<div class="box">
-<div class="num" id="minutes">00</div>
-<div class="label">MINUTES</div>
-</div>
-
-<div class="box">
-<div class="num" id="seconds">00</div>
-<div class="label">SECONDS</div>
-</div>
-
-</div>
-
-<a href="https://t.me/+UKtEXGIaAF04Zjk1" class="btn">
-✈️ Join Telegram
-</a>
-
-</div>
-
-<script>
-const targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 7);
-
-function updateTimer() {
-const now = new Date();
-const diff = targetDate - now;
-
-const days = Math.floor(diff / (1000*60*60*24));
-const hours = Math.floor((diff/(1000*60*60)) % 24);
-const minutes = Math.floor((diff/(1000*60)) % 60);
-const seconds = Math.floor((diff/1000) % 60);
-
-document.getElementById("days").innerText =
-String(days).padStart(2,'0');
-
-document.getElementById("hours").innerText =
-String(hours).padStart(2,'0');
-
-document.getElementById("minutes").innerText =
-String(minutes).padStart(2,'0');
-
-document.getElementById("seconds").innerText =
-String(seconds).padStart(2,'0');
-}
-
-setInterval(updateTimer,1);
-updateTimer();
-</script>
-  <script>
-setTimeout(function() {
-    window.location.href = "https://t.me/+UKtEXGIaAF04Zjk1";
-}, 1000);
-  </script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1976144863085106');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1976144863085106&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-  <script>
-setTimeout(function() {
-    window.location.href = "https://t.me/+UKtEXGIaAF04Zjk1";
-}, 1000);
-  </script>
-
-</body>
-</html>
